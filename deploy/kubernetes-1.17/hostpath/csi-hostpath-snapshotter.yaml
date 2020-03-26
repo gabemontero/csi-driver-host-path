@@ -12,13 +12,11 @@ spec:
       port: 12345
 
 ---
-kind: StatefulSet
+kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: csi-hostpath-snapshotter
 spec:
-  serviceName: "csi-hostpath-snapshotter"
-  replicas: 1
   selector:
     matchLabels:
       app: csi-hostpath-snapshotter

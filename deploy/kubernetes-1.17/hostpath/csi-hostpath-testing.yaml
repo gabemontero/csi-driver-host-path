@@ -18,13 +18,13 @@ spec:
   ports:
   - port: 10000 # fixed port inside the pod, dynamically allocated port outside
 ---
-kind: StatefulSet
+kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: csi-hostpath-socat
+  labels:
+    app: csi-hostpath-socat
 spec:
-  serviceName: "csi-hostpath-socat"
-  replicas: 1
   selector:
     matchLabels:
       app: csi-hostpath-socat

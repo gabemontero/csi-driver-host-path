@@ -12,13 +12,13 @@ spec:
       port: 12345
 
 ---
-kind: StatefulSet
+kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: csi-hostpath-provisioner
+  labels:
+    app: csi-hostpath-provisioner
 spec:
-  serviceName: "csi-hostpath-provisioner"
-  replicas: 1
   selector:
     matchLabels:
       app: csi-hostpath-provisioner

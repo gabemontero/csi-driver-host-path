@@ -12,13 +12,13 @@ spec:
       port: 12345
 
 ---
-kind: StatefulSet
+kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: csi-hostpath-resizer
+  labels:
+    app: csi-hostpath-resizer
 spec:
-  serviceName: "csi-hostpath-resizer"
-  replicas: 1
   selector:
     matchLabels:
       app: csi-hostpath-resizer
